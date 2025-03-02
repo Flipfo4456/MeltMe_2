@@ -3,11 +3,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Fredoka One', cursive;
 }
 
+html, body {
+    overflow: auto;
+    scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
+}
 /* Body styling */
 body {
+    font-family: 'Fredoka One', cursive;/*...............................................*/
     min-height: 100vh;
     background: linear-gradient(-135deg, rgb(40, 40, 40), #000000);
     text-align: center;
@@ -17,6 +25,7 @@ body {
 
 /* Header styling */
 header {
+    font-weight: 100;/*...............................................*/
     text-align: center;
     margin-bottom: 20px;
 }
@@ -24,11 +33,14 @@ header {
 #currentDate {
     font-size: 1.5rem;
     font-weight: bold;
+    font-family: 'Poppins', sans-serif !important;/*...............................................*/
+    
 }
 
 #currentTime {
     font-size: 1rem;
     margin-top: 5px;
+    font-family: 'Poppins', sans-serif !important;/*...............................................*/
 }
 
 /* Task List Styling */
@@ -66,6 +78,7 @@ header {
 
 /* Task Header */
 .task-header {
+    font-weight: 100;/*...............................................*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -80,9 +93,10 @@ header {
 
 /* Delete Task Button */
 .delete-task {
+    font-family: 'Fredoka One', cursive;/*...............................................*/
     background: none;
     border: none;
-    color: white;
+    color: rgb(255, 25, 25);
     font-size: 1.3rem;
     cursor: pointer;
     transition: transform 0.2s ease, color 0.3s ease;
@@ -90,7 +104,7 @@ header {
 
 .delete-task:hover {
     transform: scale(1.2);
-    color: #ff6b6b;
+    color: rgb(146, 15, 15);
 }
 
 /* ปรับสไตล์ของปุ่ม Play */
@@ -119,7 +133,110 @@ header {
 }
 
 /* Add task button styling */
-#addTask {
+
+.icon-btn {
+    font-family: 'Fredoka One', cursive;/*...............................................*/
+    width: 49px;/*..............................Slit fix.............*/
+    height: 50px;
+    border: 1px solid #cdcdcd;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    position: fixed;
+    transition: width 0.2s ease-in-out;
+    font-weight: 500;
+    margin-bottom: 60px;
+    margin-right: 30px;
+    bottom: 25px;
+    right: 25px;
+}
+
+.add-btn:hover {
+    background: rgb(225, 225, 225);
+    width: 100px;
+  }
+  
+  .add-btn::before,
+  .add-btn::after {
+    transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 10px;
+    top: calc(50% - 2px);
+    background: rgb(255, 0, 0);
+  }
+  
+  .add-btn::after {
+    right: 14px;
+    overflow: hidden;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+  
+  .add-btn::before {
+    left: 14px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+  }
+  
+  .icon-btn:focus {
+    outline: none;
+  }
+  
+  .btn-txt {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  
+  .add-btn:hover::before,
+  .add-btn:hover::after {
+    width: 4px;
+    border-radius: 2px;
+  }
+  
+  .add-btn:hover .btn-txt {
+    opacity: 1;
+  }
+  
+  .add-icon::after,
+  .add-icon::before {
+    transition: all 0.2s ease-in-out;
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 2px;
+    top: calc(50% - 10px);
+    /* background: seagreen; */
+    background: rgb(255, 0, 0);
+    overflow: hidden;
+  }
+  
+  .add-icon::before {
+    left: 22px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+  }
+  
+  .add-icon::after {
+    right: 22px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+  
+  .add-btn:hover .add-icon::before {
+    left: 15px;
+    height: 4px;
+    top: calc(50% - 2px);
+  }
+  
+  .add-btn:hover .add-icon::after {
+    right: 15px;
+    height: 4px;
+    top: calc(50% - 2px);
+  }
+/* #addTask {
+    margin-bottom: 60px;
     font-size: 32px;
     width: 70px;
     height: 70px;
@@ -131,17 +248,18 @@ header {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.3);
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
 #addTask:hover {
     background: #3b7ed0;
     transform: scale(1.1);
-}
+} */
 
 /* Navbar Styling */
 .navbar {
+    
     position: fixed;
     bottom: 0;
     left: 0;
@@ -154,6 +272,7 @@ header {
 }
 
 .nav-item {
+    font-family: 'Poppins', sans-serif !important;
     display: flex;
     flex-direction: column;
     align-items: center;

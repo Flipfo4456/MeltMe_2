@@ -13,6 +13,13 @@
 
     <div class="nav_container">
 
+
+        <!-- <button class="go-back-btn" onclick="goBack()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 19l-7-7 7-7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+           
+        </button> -->
     
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <button class="go-back-btn" onclick="goBack()">
@@ -28,17 +35,39 @@
            <i class="fas fa-volume-up"></i> 
            Audio
        </button>
-    
+    <!-- Cassette Sound Effect -->
+<audio id="cassette-sound">
+    <source src="assets/cassette-insert.wav" type="audio/wav">
+</audio>
        <!-- Audio Panel -->
-       <div class="Audio-panel" id="AudioPanel">
-           <button id="toggle-button" class="toggle-btn">Turn Music Off</button>
-           <label for="volume-slider">Volume</label>
-           <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
-       </div>
+<div class="Audio-panel" id="AudioPanel">
+    <h3 class="title-panel">Cassette Player!</h3>
+    <button id="toggle-button" class="toggle-btn">Turn Music Off</button>
+
+    <div class="song-container">
+        <label for="song-selector">
+            <i class="fas fa-music"></i> Choose a song:
+        </label>
+        <select id="song-selector">
+            <option value="assets/P.wav">🎵 Song 1 : P</option>
+            <option value="assets/N.wav">🎶 Song 2 : N</option>
+            <option value="assets/S.wav">🎼 Song 3 : fly away</option>
+        </select>
+    </div>
+
+    <div class="volume-container">
+        <label for="volume-slider">
+            <i class="fas fa-volume-up"></i> Volume
+        </label>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.02" value="1">
+    </div>
+</div>
+
     
         <!-- Audio element -->
         <audio id="background-music" loop>
-           <source src="P.wav" type="audio/wav">
+           <source src="assets/P.wav" type="audio/wav">
+           <source src="assets/N.wav" type="audio/wav">
            Your browser does not support the audio element.
        </audio>
     
@@ -65,6 +94,7 @@
                
            </div>
        </div>
+    
 
        
     <script src="js/appSystem2.js"></script>

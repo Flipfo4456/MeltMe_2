@@ -3,35 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings - To-Do List</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>To-Do List</title>
     <link rel="stylesheet" href="css/Todo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
 </head>
 <body>
+<div class="container">
 
-    <div class="container">
-        <h1>To-Do List</h1>
-        
-        <div class="input-group">
-            <input type="text" id="taskInput" placeholder="Enter a task...">
-            <button onclick="addTask()">Add</button>
-        </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Task</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="taskTable"></tbody>
-        </table>
+    <h2 class="title">To-Do List!</h2>
+    <div class="container.addBar">
+        <input type="text" id="taskInput" placeholder="Add what to do.." />
+        <button class = "add-button" onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
     </div>
+</div>
 
-    <!-- ใช้ Navbar แบบเดียวกับ Home -->
-    <nav class="navbar">
+      <!-- ใช้ Navbar แบบเดียวกับ Home -->
+      <nav class="navbar">
         <a href="home.html" class="nav-item">
             <i class="fas fa-home"></i>
             <span>Home</span>
@@ -44,55 +33,18 @@
             <i class="fas fa-clipboard-list"></i>
             <span>To-Do-list</span>
         </a>
-    </nav>
+      </nav>
+<div class="bg-container">
 
-    <script>
-        document.addEventListener("DOMContentLoaded", loadTasks);
+    <label class="cross-container">
+        <input id="cbtest-19" type="checkbox"  />
+        <div class="checkmark"></div>
+        <h3>No fire or smoke!</h3>
+      </label>
+      
+</div>
 
-        function addTask() {
-            let taskInput = document.getElementById("taskInput");
-            let taskText = taskInput.value.trim();
 
-            if (taskText === "") return;
-
-            let taskList = JSON.parse(localStorage.getItem("todoTasks")) || [];
-            taskList.push({ text: taskText, completed: false });
-            localStorage.setItem("todoTasks", JSON.stringify(taskList));
-
-            taskInput.value = "";
-            loadTasks();
-        }
-
-        function removeTask(index) {
-            let taskList = JSON.parse(localStorage.getItem("todoTasks")) || [];
-            taskList.splice(index, 1);
-            localStorage.setItem("todoTasks", JSON.stringify(taskList));
-            loadTasks();
-        }
-
-        function toggleTask(index) {
-            let taskList = JSON.parse(localStorage.getItem("todoTasks")) || [];
-            taskList[index].completed = !taskList[index].completed;
-            localStorage.setItem("todoTasks", JSON.stringify(taskList));
-            loadTasks();
-        }
-
-        function loadTasks() {
-            let taskList = JSON.parse(localStorage.getItem("todoTasks")) || [];
-            let taskTable = document.getElementById("taskTable");
-            taskTable.innerHTML = "";
-
-            taskList.forEach((task, index) => {
-                let row = document.createElement("tr");
-                row.innerHTML = `
-                    <td class="${task.completed ? 'task-done' : ''}">${task.text}</td>
-                    <td><input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleTask(${index})"></td>
-                    <td><button class="delete-btn" onclick="removeTask(${index})">X</button></td>
-                `;
-                taskTable.appendChild(row);
-            });
-        }
-    </script>
-
+    <script src="js/Todo.js"></script>
 </body>
 </html>

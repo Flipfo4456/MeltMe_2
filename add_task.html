@@ -9,9 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
-    <button id="backBtn" class="back-button" onclick="location.href='home.html'">←</button>
+
+
+
+
+    <!-- <button id="backBtn" class="back-button" onclick="location.href='home.html'">←</button> -->
+    <div class="nav_container">
+
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <button class="go-back-btn" onclick="location.href='home.html'">
+            <i class="fas fa-arrow-left"></i> 
+            Go Back
+        </button>
+    
+    </div>
+
+
     <div class="task-container">
-        <h2>Add New Task</h2>
+        <h2 class = "add-newtext">Add New Task</h2>
         
         <div class="input-group">
             <label for="duration">Select Duration</label>
@@ -36,7 +52,7 @@
             <textarea id="note" placeholder="Write something..."></textarea>
         </div>
         
-        <button id="saveTask" class="save-button">Save Task</button>
+        <button id="saveTask" class="save-button">Save</button>
     </div>
     <script src="js/addHome.js"></script>
 </body>
