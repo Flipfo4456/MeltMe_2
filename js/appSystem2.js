@@ -103,21 +103,6 @@ const updateTimer = () => {
 };
 
 
-//   const countdownExtra= () =>{
- //     if (extraTime > 0 && timeLeft==0) {
-     //             extraTime--;
-     //             updateExtra(); // Update the timer display
-     //             updateButtons();
-     //         } else {
-         //             reset.disabled = false;
-         //             clearInterval(extraCountdown);
-         //             alert("Extra time over!"); // You can modify this action
-         //             // start.disabled = false;
-         //             // stop.disabled = false;
-         
-         //             // start.disabled = false; // Re-enable start button after extra time
-         //         }
-         //   };
          const updateExtra = () => {
              
              const min = Math.floor(extraTime / 60);
