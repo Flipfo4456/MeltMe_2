@@ -61,11 +61,11 @@ function saveTasks() {
         let completed = li.querySelector("input").checked;
         tasks.push({ text, completed });
     });
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("Fotodo", JSON.stringify(tasks));
 }
 
 function loadTasks() {
-    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    let tasks = JSON.parse(localStorage.getItem("Fotodo")) || [];
     let taskList = document.getElementById("taskList");
     taskList.innerHTML = "";
     tasks.forEach(task => {
