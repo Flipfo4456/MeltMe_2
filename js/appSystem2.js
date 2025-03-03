@@ -28,12 +28,10 @@
  } else {
      // Play cassette insert sound first
      cassetteSound.play();
-     // button.style.backgroundColor = rgb(95, 10, 10) ;
-     // button.textContent = "Inserting a Tape";
      cassetteSound.currentTime = 0; // Reset sound to start
      
-     // Delay music start until cassette sound ends
      cassetteSound.onended = () => {
+
          audio.play();
          button.textContent = "Turn Music On";
          button.style.backgroundColor = "rgb(139, 209, 35)";
@@ -49,10 +47,18 @@ volumeSlider.addEventListener('input', () => {
 songSelector.addEventListener('change', () => {
  const selectedSong = songSelector.value;
  audio.src = selectedSong; // Update the source
- audio.play(); // Auto-play the new song
- isMusicPlaying = true; // Ensure the flag is updated
- button.textContent = "Turn Music On"; // Update button text
- button.style.backgroundColor = "rgb(139, 209, 35)"; // Change button color
+//  audio.play(); // Auto-play the new song
+button.textContent = "Changing";
+button.style.backgroundColor = "rgb(123, 123, 123)";
+isMusicPlaying = true; // Ensure the flag is updated
+cassetteSound.play();
+cassetteSound.currentTime = 0; // Reset sound to start
+cassetteSound.onended = () => {
+    
+    audio.play();
+    button.textContent = "Turn Music On";
+    button.style.backgroundColor = "rgb(139, 209, 35)";
+     };
 });
 
 const start = document.getElementById("start");
