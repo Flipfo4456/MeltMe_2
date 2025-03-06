@@ -69,7 +69,7 @@ const reset = document.getElementById("reset");
 const timer = document.getElementById("timer");
 
 const moreButton = document.getElementById('more');
-moreButton.style.backgroundColor = 'rgb(255, 165, 0)'; // Orange color
+moreButton.style.backgroundColor = '#ffa500'; // Orange color
 moreButton.style.display = 'none';
 
 let timeLeft = 10;
